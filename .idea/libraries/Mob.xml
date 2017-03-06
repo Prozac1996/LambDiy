@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Mob">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/libs/Android Eclipse SMS SDK v 2.1.3/SMSSDK/SMSSDK/libs" />
+      <root url="file://$PROJECT_DIR$/libs/Android Eclipse SMS SDK v 2.1.3/SMSSDK/ShortMessageSDKGUI" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/libs/Android Eclipse SMS SDK v 2.1.3/ApiDoc" />
+    </JAVADOC>
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/libs/Android Eclipse SMS SDK v 2.1.3/SMSSDK/SMSSDK/libs" recursive="false" />
+  </library>
+</component>

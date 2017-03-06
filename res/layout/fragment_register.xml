@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+                android:background="#cccccc"
+                >
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="输入下面的信息就能注册账号了哦！"
+                android:background="#436EEE" android:padding="30dp" android:textSize="20sp"
+                android:layout_marginBottom="100dp"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center">
+        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                  android:text="用户名：" android:textColor="#000000" />
+        <EditText android:layout_width="150dp" android:layout_height="wrap_content"
+                  android:hint="username" android:id="@+id/et_username"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center">
+        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                  android:text="密码：" android:textColor="#000000"/>
+        <EditText android:layout_width="150dp" android:layout_height="wrap_content" android:inputType="textPassword"
+                  android:hint="password" android:id="@+id/et_password"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center">
+        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                  android:text="重复密码：" android:textColor="#000000"/>
+        <EditText android:layout_width="150dp" android:layout_height="wrap_content" android:inputType="textPassword"
+                  android:hint="password" android:id="@+id/et_pwdAgain"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center">
+        <TextView android:layout_width="80dp" android:layout_height="wrap_content"
+                  android:text="手机号：" android:textColor="#000000"/>
+        <EditText android:layout_width="150dp" android:layout_height="wrap_content"
+                  android:hint="phoneNumber" android:id="@+id/et_telephone"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center">
+        <EditText android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="验证码"
+                android:id="@+id/et_checkCode"/>
+
+        <diywidget.TimeButton android:id="@+id/btn_check"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="发送验证码"
+                 android:padding="10dp" android:background="#ffffff" android:textColor="#000000"/>
+    </LinearLayout>
+
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:text="注册" android:id="@+id/btn_submit"
+        android:background="#4EEE94" android:shadowRadius="0.5" android:layout_margin="20dp"/>
+
+</LinearLayout>

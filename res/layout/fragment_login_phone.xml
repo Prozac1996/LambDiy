@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:background="#000000"
+                android:clickable="true">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <EditText android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:id="@+id/et_phone"
+                    android:hint="在此输入您的手机号"/>
+        <diywidget.TimeButton android:id="@+id/btn_sendCode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="发送短信"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <EditText android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="在此输入您的验证码"
+                    android:id="@+id/et_checkCode"/>
+        <Button android:id="@+id/btn_submit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="提交"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">小羊DIY</string>
+    <string name="suggest_explain">你在使用软件的过程中遇到了啥问题不？或者你有一些新奇的建议呢？请提交给我，帮助我把软件做的更好~</string>
+
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="release_to_refresh">释放立即刷新</string>
+    <string name="refreshing">正在刷新…</string>
+    <string name="not_updated_yet">暂未更新过</string>
+    <string name="updated_at">上次更新于%1$s前</string>
+    <string name="updated_just_now">刚刚更新</string>
+    <string name="time_error">时间有问题</string>
+
+    <string-array name="kbs">
+        <item>未选择</item>
+        <item>小丑鱼</item>
+    </string-array>
+    
+    <string-array name="categories">
+        <item>全部</item>
+        <item>新闻</item>
+        <item>教程</item>
+        <item>开箱</item>
+
+
+    </string-array>
+    
+    <string-array name="kb_area">
+        <item>背景</item>
+        <item>描边</item>
+        <item>字母区</item>
+        <item>数字区</item>
+        <item>F区</item>
+        <item>ESC</item>
+        <item>空格</item>
+        <item>增补区</item>
+        <item>功能区</item>
+        <item>方向键</item>
+        <item>小键盘</item>
+        <item>指示灯</item>
+        <item>上壳</item>
+        <item>文字</item>
+    </string-array>
+
+</resources>

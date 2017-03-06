@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:theme="@android:style/Theme.Dialog">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="为你的作品起个名字吧：" android:layout_gravity="center_horizontal" android:textSize="20sp"/>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/et_proname"/>
+    
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="取消" android:id="@+id/btn_cancel"/>
+        <Button android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="保存" android:id="@+id/btn_ensure"/>
+    </LinearLayout>
+
+</LinearLayout>

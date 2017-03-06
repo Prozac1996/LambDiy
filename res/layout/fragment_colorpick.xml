@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:colorpicker="http://schemas.android.com/apk/res/cn.lcu.lfz.Discovery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="#00000000">
+    <view.ColorPickView
+            android:id="@+id/color_picker_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            colorpicker:center_color="#FFFFFF"
+            colorpicker:center_radius="7dp"
+            colorpicker:circle_radius="140dp" />
+
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+                android:id="@+id/txt_color"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="37dp"
+                android:layout_gravity="center"/>
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="获取颜色" android:id="@+id/btn_getColor" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

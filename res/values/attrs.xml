@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="color_picker">
+        <!-- 背景圆的半径 -->
+        <attr name="circle_radius" format="dimension" />
+        <!-- 可滑动小球的半径 -->
+        <attr name="center_radius" format="dimension" />
+        <!-- 可滑动小球的颜色 -->
+        <attr name="center_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LambTitleBar">
+        <attr name="leftButtonText" format="string|reference"></attr>
+        <attr name="leftButtonTextColor" format="color|reference"></attr>
+        <attr name="leftButtonTextSize" format="dimension|reference"></attr>
+        <attr name="leftButtonImage" format="color|reference"></attr>
+
+        <attr name="centerButtonText" format="string|reference"></attr>
+        <attr name="centerButtonTextColor" format="color|reference"></attr>
+        <attr name="centerButtonTextSize" format="dimension|reference"></attr>
+
+        <attr name="rightButtonText" format="string|reference"></attr>
+        <attr name="rightButtonTextColor" format="color|reference"></attr>
+        <attr name="rightButtonTextSize" format="dimension|reference"></attr>
+        <attr name="rightButtonImage" format="color|reference"></attr>
+
+    </declare-styleable>
+
+
+</resources>

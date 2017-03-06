@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <HorizontalScrollView android:id="@+id/categoryBar_scrollView"
+                          android:layout_width="match_parent"
+                          android:layout_height="50dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="3dp"
+                            android:scrollbars="none" >
+
+        <LinearLayout android:id="@+id/category_layout"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:gravity="center_vertical"
+                      android:orientation="horizontal">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <view.RefreshableView android:id="@+id/refreshable_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ListView android:id="@+id/news_list"
+                  android:layout_width="match_parent" android:layout_height="match_parent"
+                  android:cacheColorHint="#00000000"
+                  android:divider="@drawable/divider"
+                  android:fastScrollEnabled="true"
+                  android:background="#77ffffff"/>
+    </view.RefreshableView>
+
+</LinearLayout>
