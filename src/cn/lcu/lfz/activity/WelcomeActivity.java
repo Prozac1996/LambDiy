@@ -8,6 +8,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import cn.lcu.lfz.Discovery.R;
+
 /**
  * Created by Administrator on 2017/2/8.
  */
@@ -19,8 +20,8 @@ public class WelcomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_welcome);
-        imageView = (ImageView) findViewById(R .id.welcome_img);
-        AlphaAnimation anima = new AlphaAnimation(0.3f,1.0f);
+        imageView = (ImageView) findViewById(R.id.welcome_img);
+        AlphaAnimation anima = new AlphaAnimation(0.3f, 1.0f);
         anima.setDuration(3000);
         imageView.startAnimation(anima);
 
@@ -45,7 +46,7 @@ public class WelcomeActivity extends Activity {
     }
 
     private void skip() {
-        startActivity(new Intent(this,LoginActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
 }

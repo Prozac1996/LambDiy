@@ -16,7 +16,7 @@ public class FishKeyBoard extends KeyBoardModel {
 
 
     public FishKeyBoard(Context context) {
-        super(context,"小丑鱼");
+        super(context, "小丑鱼");
     }
 
     @Override
@@ -47,7 +47,7 @@ public class FishKeyBoard extends KeyBoardModel {
     @Override
     protected HashMap setColorMap() {
         HashMap color_map = new HashMap();
-        for(int i = 0; i < 14 ; i++){
+        for (int i = 0; i < 14; i++) {
             color_map.put(i, MyTools.randomColor());
         }
         return color_map;

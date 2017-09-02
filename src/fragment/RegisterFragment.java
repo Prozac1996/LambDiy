@@ -24,8 +24,8 @@ import java.util.HashMap;
  */
 public class RegisterFragment extends Fragment implements View.OnClickListener {
 
-    private EditText et_username,et_password,et_telephone,et_checkCode,et_pwdAgain;
-    private Button btn_submit,btn_check;
+    private EditText et_username, et_password, et_telephone, et_checkCode, et_pwdAgain;
+    private Button btn_submit, btn_check;
 
 
     @Override
@@ -37,7 +37,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_register,container,false);
+        View v = inflater.inflate(R.layout.fragment_register, container, false);
         et_username = (EditText) v.findViewById(R.id.et_username);
         et_password = (EditText) v.findViewById(R.id.et_password);
         et_pwdAgain = (EditText) v.findViewById(R.id.et_pwdAgain);
@@ -50,30 +50,30 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         return v;
     }
 
-    EventHandler h = new EventHandler(){
+    EventHandler h = new EventHandler() {
         @Override
         public void afterEvent(int event, int result, Object data) {
-            if(result == SMSSDK.RESULT_COMPLETE) {
+            if (result == SMSSDK.RESULT_COMPLETE) {
                 if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
                     //发送验证码
-                    ((LoginActivity)getActivity()).showMsg("已发送成功");
+                    ((LoginActivity) getActivity()).showMsg("已发送成功");
 
-                }else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+                } else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
                     //提交验证码之后
-                    HashMap<String,String> map = (HashMap<String, String>) data;
-                    if(map.size() != 0){
+                    HashMap<String, String> map = (HashMap<String, String>) data;
+                    if (map.size() != 0) {
                         //验证成功
                         String username = et_username.getText().toString();
                         String password = et_password.getText().toString();
                         String telephone = et_telephone.getText().toString();
-                        LeancloudTools.register(getActivity(),username,password,telephone);
-                    }else{
+                        LeancloudTools.register(getActivity(), username, password, telephone);
+                    } else {
                         //验证失败
                         Toast.makeText(getActivity(), "验证码错误", Toast.LENGTH_SHORT).show();
                     }
                 }
-            }else{
-                ((Throwable)data).printStackTrace();
+            } else {
+                ((Throwable) data).printStackTrace();
             }
         }
     };
@@ -81,26 +81,26 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.btn_submit:
 
-                if(checkEnable() == true);
-                else{
+                if (checkEnable() == true) ;
+                else {
                     Toast.makeText(getActivity(), "搞啥子搞，信息还没输完呢！", Toast.LENGTH_SHORT).show();
                     break;
                 }
 
-                if(!et_password.getText().toString().equals(et_pwdAgain.getText().toString())){
+                if (!et_password.getText().toString().equals(et_pwdAgain.getText().toString())) {
                     Toast.makeText(getActivity(), "两次输入密码不正确，请重新输入！", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 String telephone = et_telephone.getText().toString();
                 String code = et_checkCode.getText().toString();
-                MobTools.submitCode(telephone,code);
+                MobTools.submitCode(telephone, code);
                 break;
             case R.id.btn_check:
                 String phone = et_telephone.getText().toString();
-                if(MyTools.isChinaPhoneLegal(phone))
+                if (MyTools.isChinaPhoneLegal(phone))
                     MobTools.getCode(phone);
                 else
                     Toast.makeText(getActivity(), "请输入正确的手机号！", Toast.LENGTH_SHORT).show();
@@ -110,15 +110,15 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
     private boolean checkEnable() {
         boolean isOk = true;
-        if(et_username.getText().toString().equals(""))
+        if (et_username.getText().toString().equals(""))
             isOk = false;
-        if(et_password.getText().toString().equals(""))
+        if (et_password.getText().toString().equals(""))
             isOk = false;
-        if(et_pwdAgain.getText().toString().equals(""))
+        if (et_pwdAgain.getText().toString().equals(""))
             isOk = false;
-        if(et_checkCode.getText().toString().equals(""))
+        if (et_checkCode.getText().toString().equals(""))
             isOk = false;
-        if(et_telephone.getText().toString().equals(""))
+        if (et_telephone.getText().toString().equals(""))
             isOk = false;
 
         return isOk;

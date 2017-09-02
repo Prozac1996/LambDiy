@@ -16,7 +16,7 @@ import cn.lcu.lfz.Discovery.R;
 /**
  * Created by Administrator on 2017/2/10.
  */
-public class RefreshableView extends LinearLayout implements View.OnTouchListener{
+public class RefreshableView extends LinearLayout implements View.OnTouchListener {
 
     /**
      * 下拉状态
@@ -137,7 +137,8 @@ public class RefreshableView extends LinearLayout implements View.OnTouchListene
      * 当前处理什么状态，可选值有STATUS_PULL_TO_REFRESH, STATUS_RELEASE_TO_REFRESH,
      * STATUS_REFRESHING 和 STATUS_REFRESH_FINISHED
      */
-    private int currentStatus = STATUS_REFRESH_FINISHED;;
+    private int currentStatus = STATUS_REFRESH_FINISHED;
+    ;
 
     /**
      * 记录上一次的状态是什么，避免进行重复操作
@@ -262,10 +263,8 @@ public class RefreshableView extends LinearLayout implements View.OnTouchListene
     /**
      * 给下拉刷新控件注册一个监听器。
      *
-     * @param listener
-     *            监听器的实现。
-     * @param id
-     *            为了防止不同界面的下拉刷新在上次更新时间上互相有冲突， 请不同界面在注册下拉刷新监听器时一定要传入不同的id。
+     * @param listener 监听器的实现。
+     * @param id       为了防止不同界面的下拉刷新在上次更新时间上互相有冲突， 请不同界面在注册下拉刷新监听器时一定要传入不同的id。
      */
     public void setOnRefreshListener(PullToRefreshListener listener, int id) {
         mListener = listener;
@@ -469,8 +468,7 @@ public class RefreshableView extends LinearLayout implements View.OnTouchListene
     /**
      * 使当前线程睡眠指定的毫秒数。
      *
-     * @param time
-     *            指定当前线程睡眠多久，以毫秒为单位
+     * @param time 指定当前线程睡眠多久，以毫秒为单位
      */
     private void sleep(int time) {
         try {

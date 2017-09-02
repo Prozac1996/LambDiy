@@ -24,7 +24,7 @@ public class SuggestFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_dialog_suggest,container,false);
+        View v = inflater.inflate(R.layout.fragment_dialog_suggest, container, false);
         et_suggest = (EditText) v.findViewById(R.id.et_suggest);
         btn_submit = (Button) v.findViewById(R.id.btn_submitSuggest);
         btn_submit.setOnClickListener(this);
@@ -33,19 +33,19 @@ public class SuggestFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_submitSuggest:
                 String suggest = et_suggest.getText().toString();
                 AVObject object = new AVObject("Suggest");
                 object.put("user", AVUser.getCurrentUser());
-                object.put("suggest",suggest);
+                object.put("suggest", suggest);
                 object.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(AVException e) {
-                        if(e == null){
+                        if (e == null) {
                             Toast.makeText(getActivity(), "提交完成", Toast.LENGTH_SHORT).show();
                             getFragmentManager().popBackStack();
-                        }else{
+                        } else {
                             e.printStackTrace();
                         }
                     }

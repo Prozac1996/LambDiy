@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Discovery.iml" filepath="$PROJECT_DIR$/Discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LambDiy.iml" filepath="$PROJECT_DIR$/LambDiy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/ShareSDK for Android/Libs/OneKeyShare/OneKeyShare.iml" filepath="$PROJECT_DIR$/libs/ShareSDK for Android/Libs/OneKeyShare/OneKeyShare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/ShareSDK for Android/ShareSDK for Android.iml" filepath="$PROJECT_DIR$/libs/ShareSDK for Android/ShareSDK for Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/Android Eclipse SMS SDK v 2.1.3/SMSSDK/ShortMessageSDKGUI/ShortMessageSDKGUI.iml" filepath="$PROJECT_DIR$/libs/Android Eclipse SMS SDK v 2.1.3/SMSSDK/ShortMessageSDKGUI/ShortMessageSDKGUI.iml" />
     </modules>
   </component>
 </project>

@@ -20,7 +20,7 @@ public class TestActivity extends Activity {
 
     private ViewPager viewPager;
     private ArrayList<Fragment> fragmentList;
-    private TextView tv1,tv2,tv3;
+    private TextView tv1, tv2, tv3;
     private int currentIndex;
 
     private FragmentPagerAdapter fragmentPagerAdapter;

@@ -22,7 +22,7 @@ import java.util.Map;
  */
 public class NewsContentFragment extends Fragment implements View.OnClickListener {
 
-    private TextView tv_title,tv_content;
+    private TextView tv_title, tv_content;
     private ImageView iv_image;
     private EditText et_comment;
     private Button btn_submit;
@@ -31,15 +31,18 @@ public class NewsContentFragment extends Fragment implements View.OnClickListene
 
     private AVObject news;
     private NewsCommentAdapter adapter;
-    private String title,content;
+    private String title, content;
     private AVFile image;
-//    private Map<String,String> commentMap;
-    private ArrayList<Map<String,Object>> netCommentList;
+    //    private Map<String,String> commentMap;
+    private ArrayList<Map<String, Object>> netCommentList;
 //    private String[] strings = {"author","content","head"};
 //    private int[] ints = { R.id.item_comment_author,R.id.item_comment_content,R.id.item_comment_head};
 
 
-    public NewsContentFragment(AVObject news){
+    public NewsContentFragment() {
+    }
+
+    public NewsContentFragment(AVObject news) {
         this.news = news;
         title = news.getString("title");
         content = news.getString("content");
@@ -49,7 +52,7 @@ public class NewsContentFragment extends Fragment implements View.OnClickListene
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_news_content,container,false);
+        View v = inflater.inflate(R.layout.fragment_news_content, container, false);
         initView(v);
         return v;
     }
@@ -66,7 +69,7 @@ public class NewsContentFragment extends Fragment implements View.OnClickListene
         btn_submit.setOnClickListener(this);
         tv_title.setText(title);
         tv_content.setText(content);
-        if(image != null)
+        if (image != null)
             image.getDataInBackground(new GetDataCallback() {
                 @Override
                 public void done(byte[] bytes, AVException e) {
@@ -75,11 +78,11 @@ public class NewsContentFragment extends Fragment implements View.OnClickListene
                 }
             });
         getData();
-        scrollView.smoothScrollTo(0,0);
+        scrollView.smoothScrollTo(0, 0);
     }
 
     private void getData() {
-        netCommentList = (ArrayList<Map<String,Object>>) news.get("comment");
+        netCommentList = (ArrayList<Map<String, Object>>) news.get("comment");
 //        if(netCommentList != null)
 //            for(Map<String,Object> map : netCommentList){
 //
@@ -96,36 +99,36 @@ public class NewsContentFragment extends Fragment implements View.OnClickListene
 //                resultMap.put("head",head);
 //                localCommentList.add(resultMap);
 //            }
-        if(netCommentList == null)
+        if (netCommentList == null)
             netCommentList = new ArrayList<>();
-        adapter = new NewsCommentAdapter(getActivity(),netCommentList);
+        adapter = new NewsCommentAdapter(getActivity(), netCommentList);
         lv_comment.setAdapter(adapter);
     }
 
     @Override
     public void onClick(View v) {
 
-        if(netCommentList == null){
+        if (netCommentList == null) {
             netCommentList = new ArrayList<>();
         }
         String comment_content = et_comment.getText().toString();
         AVUser comment_author = AVUser.getCurrentUser();
         HashMap commentMap = new HashMap();
 
-        commentMap.put("author",comment_author);
-        commentMap.put("content",comment_content);
+        commentMap.put("author", comment_author);
+        commentMap.put("content", comment_content);
         netCommentList.add(commentMap);
 //        localCommentList.add(commentMap);
-        news.put("comment",netCommentList);
+        news.put("comment", netCommentList);
         et_comment.setText("");
         news.saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {
-                if(e == null) {
-                    BottomToast.showToast(getActivity(),"回复成功");
+                if (e == null) {
+                    BottomToast.showToast(getActivity(), "回复成功");
                     adapter.notifyDataSetChanged();
-                }else{
-                    BottomToast.showToast(getActivity(),"回复成功");
+                } else {
+                    BottomToast.showToast(getActivity(), "回复成功");
                 }
             }
         });

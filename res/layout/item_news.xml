@@ -6,26 +6,25 @@
 
     <ImageView android:id="@+id/item_news_image" android:src="@drawable/lamb"
                android:layout_gravity="top"
-            android:layout_width="80dp" android:layout_height="wrap_content"
+               android:layout_width="80dp" android:layout_height="wrap_content"
     />
 
     <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
-                    android:orientation="vertical" android:padding="10dp">
+                  android:orientation="vertical" android:padding="10dp">
         <TextView android:id="@+id/item_news_title"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="题目" android:textColor="#000000" android:textSize="30dp"/>
+                  android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:text="题目" android:textColor="#000000" android:textSize="30dp"/>
         <TextView android:id="@+id/item_news_content"
-                android:layout_width="match_parent" android:layout_height="70dp"
-                    android:text="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                    android:overScrollMode="never" android:textColor="#333333"/>
+                  android:layout_width="match_parent" android:layout_height="70dp"
+                  android:text="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
+                  android:overScrollMode="never" android:textColor="#333333"/>
         <TextView android:id="@+id/item_news_time"
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:text="2014年3月5日 14:23:22" android:gravity="right" android:textColor="#000000"/>
+                  android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:text="2014年3月5日 14:23:22" android:gravity="right" android:textColor="#000000"/>
     </LinearLayout>
 
     <!--<ImageView android:src="@drawable/arrow_right"-->
-            <!--android:layout_width="wrap_content" android:layout_height="match_parent"/>-->
-
+    <!--android:layout_width="wrap_content" android:layout_height="match_parent"/>-->
 
 
 </LinearLayout>

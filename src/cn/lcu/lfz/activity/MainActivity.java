@@ -28,8 +28,8 @@ import java.util.ArrayList;
  */
 public class MainActivity extends SimpleFragmentActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
 
-    private LinearLayout nav_diy,nav_news,nav_me;
-    private TextView nav_diy_text,nav_news_text,nav_me_text;
+    private LinearLayout nav_diy, nav_news, nav_me;
+    private TextView nav_diy_text, nav_news_text, nav_me_text;
     private ViewPager main_viewPager;
     private FragmentStatePagerAdapter adapter;
     private ArrayList<Fragment> fragmentList;
@@ -65,7 +65,7 @@ public class MainActivity extends SimpleFragmentActivity implements View.OnClick
 
             @Override
             public void onRightClick() {
-                addFragment(R.id.main_container,new SuggestFragment());
+                addFragment(R.id.main_container, new SuggestFragment());
             }
         });
         fragmentList = new ArrayList<>();
@@ -88,12 +88,13 @@ public class MainActivity extends SimpleFragmentActivity implements View.OnClick
         main_viewPager.setCurrentItem(2);
         main_viewPager.setOffscreenPageLimit(2);
         setSelectColor(2);
+
     }
 
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.nav_diy:
 //                replaceFragment(R.id.tab_container,new DiyFragment());
                 main_viewPager.setCurrentItem(1);
@@ -112,12 +113,12 @@ public class MainActivity extends SimpleFragmentActivity implements View.OnClick
         }
     }
 
-    private void setSelectColor(int which){
+    private void setSelectColor(int which) {
 
         nav_diy_text.setTextColor(Color.WHITE);
         nav_news_text.setTextColor(Color.WHITE);
         nav_me_text.setTextColor(Color.WHITE);
-        switch (which){
+        switch (which) {
             case 1:
                 nav_diy_text.setTextColor(Color.GREEN);
                 break;
@@ -133,15 +134,15 @@ public class MainActivity extends SimpleFragmentActivity implements View.OnClick
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.info,menu);
+        getMenuInflater().inflate(R.menu.info, menu);
         return true;
     }
 
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.submit_suggest:
-                addFragment(R.id.main_container,new SuggestFragment());
+                addFragment(R.id.main_container, new SuggestFragment());
                 return true;
             default:
                 return false;

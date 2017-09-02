@@ -20,19 +20,20 @@ import tools.LeancloudTools;
 /**
  * Created by Administrator on 2016/11/13.
  */
-public class LoginFragment extends Fragment implements View.OnClickListener{
+public class LoginFragment extends Fragment implements View.OnClickListener {
 
-    private EditText et_username,et_password;
-    private Button btn_submit,btn_register;
-//    private TextView tv_login_phone;
+    private EditText et_username, et_password;
+    private Button btn_submit, btn_register;
+    //    private TextView tv_login_phone;
     private CheckBox cb_remember;
     private ImageView password_hide;
     private boolean isHide = true;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AVUser user = AVUser.getCurrentUser();
-        if(user != null){
+        if (user != null) {
             Intent i = new Intent(getActivity(), MainActivity.class);
             getActivity().startActivity(i);
             getActivity().finish();
@@ -41,7 +42,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_login,container,false);
+        View v = inflater.inflate(R.layout.fragment_login, container, false);
         et_username = (EditText) v.findViewById(R.id.username);
         et_password = (EditText) v.findViewById(R.id.password);
         btn_submit = (Button) v.findViewById(R.id.submit);
@@ -53,7 +54,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 //        tv_login_phone.setOnClickListener(this);
         password_hide = (ImageView) v.findViewById(R.id.password_hide);
         password_hide.setOnClickListener(this);
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             et_username.setText(savedInstanceState.getString("username"));
             et_password.setText(savedInstanceState.getString("password"));
         }
@@ -62,26 +63,26 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.submit:
                 String username = et_username.getText().toString();
                 String password = et_password.getText().toString();
-                if(username.equals("") || password.equals(""))
+                if (username.equals("") || password.equals(""))
 //                    Toast.makeText(getActivity(),"填完再登陆呗！", Toast.LENGTH_SHORT).show();
-                    BottomToast.showToast(getActivity(),"填完再登陆呗！");
+                    BottomToast.showToast(getActivity(), "填完再登陆呗！");
                 else
-                    LeancloudTools.login(getActivity(),username,password);
+                    LeancloudTools.login(getActivity(), username, password);
                 break;
             case R.id.register:
                 SimpleFragmentActivity sfa = (SimpleFragmentActivity) getActivity();
-                sfa.addFragment(R.id.container,new RegisterFragment());
+                sfa.addFragment(R.id.container, new RegisterFragment());
 
                 break;
             case R.id.password_hide:
-                if(isHide){
+                if (isHide) {
                     isHide = false;
                     et_password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                }else{
+                } else {
                     isHide = true;
                     et_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 }
@@ -92,30 +93,30 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         }
     }
 
-    private void saveData(){
+    private void saveData() {
         SharedPreferences sp = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        if(cb_remember.isChecked()){
-            editor.putString("username",et_username.getText().toString());
-            editor.putString("password",et_password.getText().toString());
-            editor.putBoolean("isSave",true);
+        if (cb_remember.isChecked()) {
+            editor.putString("username", et_username.getText().toString());
+            editor.putString("password", et_password.getText().toString());
+            editor.putBoolean("isSave", true);
             editor.commit();
-        }else{
-            editor.putBoolean("isSave",false);
-            editor.putString("username","");
-            editor.putString("password","");
+        } else {
+            editor.putBoolean("isSave", false);
+            editor.putString("username", "");
+            editor.putString("password", "");
             editor.commit();
         }
     }
 
-    private void loadData(){
-            SharedPreferences sp = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
-            boolean isSave = sp.getBoolean("isSave",false);
-            if(isSave) {
-                et_username.setText(sp.getString("username", ""));
-                et_password.setText(sp.getString("password", ""));
-                cb_remember.setChecked(true);
-            }
+    private void loadData() {
+        SharedPreferences sp = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
+        boolean isSave = sp.getBoolean("isSave", false);
+        if (isSave) {
+            et_username.setText(sp.getString("username", ""));
+            et_password.setText(sp.getString("password", ""));
+            cb_remember.setChecked(true);
+        }
     }
 
     @Override

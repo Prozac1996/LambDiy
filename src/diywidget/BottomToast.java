@@ -16,8 +16,8 @@ public class BottomToast {
 
     private static TextView mTextView;
 
-    public static void showToast(Context context,String message){
-        View view = LayoutInflater.from(context).inflate(R.layout.toast_bottom,null);
+    public static void showToast(Context context, String message) {
+        View view = LayoutInflater.from(context).inflate(R.layout.toast_bottom, null);
 
         mTextView = (TextView) view.findViewById(R.id.toast_bottom_message);
         mTextView.setText(message);
@@ -25,7 +25,7 @@ public class BottomToast {
         Toast toastStart = new Toast(context);
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         int height = wm.getDefaultDisplay().getHeight();
-        toastStart.setGravity(Gravity.TOP,0,(int)(height*0.8));
+        toastStart.setGravity(Gravity.TOP, 0, (int) (height * 0.8));
         toastStart.setDuration(Toast.LENGTH_SHORT);
         toastStart.setView(view);
         toastStart.show();

@@ -24,7 +24,7 @@ public class NewsCommentAdapter extends BaseAdapter {
     private Context context;
 
 
-    public NewsCommentAdapter(Context context, ArrayList arrayList){
+    public NewsCommentAdapter(Context context, ArrayList arrayList) {
         commentList = arrayList;
         this.context = context;
     }
@@ -47,13 +47,13 @@ public class NewsCommentAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View v = inflater.inflate(R.layout.item_comment,parent,false);
+        View v = inflater.inflate(R.layout.item_comment, parent, false);
         TextView tv_author = (TextView) v.findViewById(R.id.item_comment_author);
         TextView tv_content = (TextView) v.findViewById(R.id.item_comment_content);
         ImageView iv_head = (ImageView) v.findViewById(R.id.item_comment_head);
 
 
-        Map<String,Object> comment = (Map<String, Object>) commentList.get(position);
+        Map<String, Object> comment = (Map<String, Object>) commentList.get(position);
         AVUser avUser = (AVUser) comment.get("author");
         String content = (String) comment.get("content");
 
@@ -61,13 +61,13 @@ public class NewsCommentAdapter extends BaseAdapter {
         avUser.fetchInBackground(keys, new GetCallback<AVObject>() {
             @Override
             public void done(AVObject avObject, AVException e) {
-                if(e == null){
+                if (e == null) {
                     String username = avObject.getString("username");
                     AVFile head = avObject.getAVFile("userhead");
 
                     tv_content.setText(content);
                     tv_author.setText(username);
-                    if(head != null)
+                    if (head != null)
                         head.getDataInBackground(new GetDataCallback() {
                             @Override
                             public void done(byte[] bytes, AVException e) {

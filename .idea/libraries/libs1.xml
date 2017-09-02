@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="libs1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK for Android/Libs/MainLibs/libs/ShareSDK-Wechat-Core-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK for Android/Libs/MainLibs/libs/ShareSDK-SinaWeibo-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK for Android/Libs/MainLibs/libs/ShareSDK-Wechat-Moments-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK for Android/Libs/MainLibs/libs/ShareSDK-QQ-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK for Android/Libs/MainLibs/libs/ShareSDK-Wechat-Favorite-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK for Android/Libs/MainLibs/libs/MobTools-2016.1222.1756.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK for Android/Libs/MainLibs/libs/MobCommons-2016.1222.1756.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK for Android/Libs/MainLibs/libs/ShareSDK-Wechat-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ShareSDK for Android/Libs/MainLibs/libs/ShareSDK-Core-2.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

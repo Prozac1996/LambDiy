@@ -16,7 +16,7 @@ public class LoginActivity extends SimpleFragmentActivity {
      * Called when the activity is first created.
      */
 
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -31,16 +31,16 @@ public class LoginActivity extends SimpleFragmentActivity {
         }
     };
 
-    public void showMsg(String str){
+    public void showMsg(String str) {
         Message msg = new Message();
         msg.what = 1;
         Bundle args = new Bundle();
-        args.putString("str",str);
+        args.putString("str", str);
         msg.setData(args);
         handler.sendMessage(msg);
     }
 
-    public void popFragment(){
+    public void popFragment() {
         Message msg = new Message();
         msg.what = 2;
         handler.sendMessage(msg);
@@ -54,9 +54,9 @@ public class LoginActivity extends SimpleFragmentActivity {
         init();
     }
 
-    private void init(){
+    private void init() {
         LeancloudTools.init(this);
-        replaceFragment(R.id.container,new LoginFragment());
+        replaceFragment(R.id.container, new LoginFragment());
     }
 
 }

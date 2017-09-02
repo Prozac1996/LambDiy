@@ -15,7 +15,7 @@
         <item>未选择</item>
         <item>小丑鱼</item>
     </string-array>
-    
+
     <string-array name="categories">
         <item>全部</item>
         <item>新闻</item>
@@ -24,7 +24,7 @@
 
 
     </string-array>
-    
+
     <string-array name="kb_area">
         <item>背景</item>
         <item>描边</item>

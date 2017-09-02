@@ -10,7 +10,7 @@ import cn.lcu.lfz.Discovery.R;
 
 /**
  * Created by Administrator on 2017/1/26.
- *                                   被废弃的类
+ * 被废弃的类
  */
 public class KeyBoardFragment extends Fragment {
 
@@ -30,7 +30,7 @@ public class KeyBoardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 //        View v = new KeyBoardView(getActivity());
 
-        View v = inflater.inflate(R.layout.activity_keyboard,container,false);
+        View v = inflater.inflate(R.layout.activity_keyboard, container, false);
         return v;
     }
 

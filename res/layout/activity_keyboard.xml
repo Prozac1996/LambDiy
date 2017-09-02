@@ -7,22 +7,22 @@
               android:clickable="true">
 
     <LinearLayout
-                  android:orientation="horizontal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <Spinner android:layout_width="150dp" android:layout_height="wrap_content"
-                android:id="@+id/spn_kb"
-                android:entries="@array/kbs">
+                 android:id="@+id/spn_kb"
+                 android:entries="@array/kbs">
         </Spinner>
 
         <Spinner android:layout_width="150dp" android:layout_height="wrap_content"
-                android:id="@+id/spn_area"
-                android:entries="@array/kb_area">
+                 android:id="@+id/spn_area"
+                 android:entries="@array/kb_area">
         </Spinner>
 
         <TextView android:layout_width="30dp" android:layout_height="30dp" android:layout_gravity="center_vertical"
-        android:background="#ff0000" android:id="@+id/tv_color"/>
+                  android:background="#ff0000" android:id="@+id/tv_color"/>
 
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:id="@+id/btn_enter" android:text="确定" android:layout_gravity="center"
@@ -31,8 +31,9 @@
                 android:text="保存" android:id="@+id/btn_save" android:layout_gravity="center"/>
         <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:text="读取" android:id="@+id/btn_load" android:layout_gravity="center"/>
-        <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="#00000000"
-                 android:id="@+id/btn_back" android:layout_gravity="center" android:padding="10dp"/>
+        <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content"
+                     android:background="#00000000"
+                     android:id="@+id/btn_back" android:layout_gravity="center" android:padding="10dp"/>
 
     </LinearLayout>
 </LinearLayout>

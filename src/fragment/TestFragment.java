@@ -26,13 +26,13 @@ public class TestFragment extends Fragment {
 
     private static final int REQUEST_SELECT_IMAGE = 1;
 
-    private Button btn_select,btn_upload;
+    private Button btn_select, btn_upload;
     private ImageView iv_image;
     private MyTestOnClick myTestOnClick;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_test,container,false);
+        View v = inflater.inflate(R.layout.fragment_test, container, false);
         myTestOnClick = new MyTestOnClick();
 
         btn_select = (Button) v.findViewById(R.id.test_btn_selectImage);
@@ -46,16 +46,16 @@ public class TestFragment extends Fragment {
     }
 
 
-    class MyTestOnClick implements View.OnClickListener{
+    class MyTestOnClick implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.test_btn_selectImage:
                     Intent i = new Intent();
                     i.setType("image/*");
                     i.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(i,REQUEST_SELECT_IMAGE);
+                    startActivityForResult(i, REQUEST_SELECT_IMAGE);
                     break;
                 case R.id.test_btn_uploadImage:
 
@@ -66,12 +66,12 @@ public class TestFragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode == Activity.RESULT_OK){
-            if(requestCode == REQUEST_SELECT_IMAGE){
-                Toast.makeText(getActivity(),"获取到图片",Toast.LENGTH_LONG).show();
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == REQUEST_SELECT_IMAGE) {
+                Toast.makeText(getActivity(), "获取到图片", Toast.LENGTH_LONG).show();
                 Uri imageUri = data.getData();
                 try {
-                    AVFile avFile = AVFile.withAbsoluteLocalPath("myHead.png", MyTools.getImageAbsolutePath(getActivity(),imageUri));
+                    AVFile avFile = AVFile.withAbsoluteLocalPath("myHead.png", MyTools.getImageAbsolutePath(getActivity(), imageUri));
                     avFile.saveInBackground(new SaveCallback() {
                         @Override
                         public void done(AVException e) {

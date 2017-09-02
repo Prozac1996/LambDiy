@@ -25,12 +25,12 @@ public class ColorPickerDialogFragment extends DialogFragment implements View.On
 
     GetColorEventListener listener;
 
-    public interface GetColorEventListener{
+    public interface GetColorEventListener {
         void getColorEvent(int newColor);
     }
 
     //回调方法，点击确定传值出去
-    public ColorPickerDialogFragment(GetColorEventListener listener){
+    public ColorPickerDialogFragment(GetColorEventListener listener) {
         super();
         this.listener = listener;
     }
@@ -43,7 +43,7 @@ public class ColorPickerDialogFragment extends DialogFragment implements View.On
                 R.layout.fragment_colorpick, null);
         dialog.getWindow().getAttributes().windowAnimations = R.style.dialogAnim;
         dialog.setContentView(v);
-        myView = (ColorPickView)v.findViewById(R.id.color_picker_view);
+        myView = (ColorPickView) v.findViewById(R.id.color_picker_view);
         txtColor = (TextView) v.findViewById(R.id.txt_color);
         btn_getColor = (Button) v.findViewById(R.id.btn_getColor);
         btn_getColor.setOnClickListener(this);
@@ -82,7 +82,7 @@ public class ColorPickerDialogFragment extends DialogFragment implements View.On
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_getColor:
                 listener.getColorEvent(nowColor);
                 dismiss();

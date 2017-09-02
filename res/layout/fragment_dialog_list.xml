@@ -5,10 +5,10 @@
               android:layout_height="match_parent">
 
     <ProgressBar android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:id="@+id/dialog_list_progressBar"/>
+                 android:id="@+id/dialog_list_progressBar"/>
 
     <ListView android:layout_width="match_parent" android:layout_height="match_parent"
-            android:id="@+id/lv_keyboard">
+              android:id="@+id/lv_keyboard">
     </ListView>
 
 </LinearLayout>

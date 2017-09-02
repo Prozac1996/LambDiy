@@ -30,16 +30,16 @@ public class AreaSelectDialogFragment extends DialogFragment {
 //        LinearLayout linearLayout = new LinearLayout(getActivity());
 //        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
         String[] areas = getResources().getStringArray(R.array.kb_area);
-        for(int i = 0; i < areas.length; i++){
+        for (int i = 0; i < areas.length; i++) {
             String areaName = areas[i];
             TextView textView = new TextView(getActivity());
             textView.setText(areaName);
-            textView.setPadding(20,20,20,20);
+            textView.setPadding(20, 20, 20, 20);
             final int finalI = i;
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onSelectedArea(finalI,areaName);
+                    listener.onSelectedArea(finalI, areaName);
                     dismiss();
                 }
             });
@@ -50,7 +50,7 @@ public class AreaSelectDialogFragment extends DialogFragment {
         return dialog;
     }
 
-    public interface OnAreaSelectedListener{
-        public void onSelectedArea(int pos,String name);
+    public interface OnAreaSelectedListener {
+        public void onSelectedArea(int pos, String name);
     }
 }

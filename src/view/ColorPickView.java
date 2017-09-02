@@ -42,8 +42,8 @@ public class ColorPickView extends View {
     }
 
     /**
-     * @describe 初始化操作
      * @param attrs
+     * @describe 初始化操作
      */
     private void init(AttributeSet attrs) {
         // 获取自定义组件的属性
@@ -125,23 +125,23 @@ public class ColorPickView extends View {
     }
 
     /**
-     * @describe 计算两点之间的位置
      * @param x1
      * @param y1
      * @param x2
      * @param y2
      * @return
+     * @describe 计算两点之间的位置
      */
     public static int getLength(float x1, float y1, float x2, float y2) {
         return (int) Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
     }
 
     /**
-     * @describe 当触摸点超出圆的范围的时候，设置小球边缘位置
      * @param a
      * @param b
      * @param cutRadius
      * @return
+     * @describe 当触摸点超出圆的范围的时候，设置小球边缘位置
      */
     public static Point getBorderPoint(Point a, Point b, int cutRadius) {
         float radian = getRadian(a, b);
@@ -150,10 +150,10 @@ public class ColorPickView extends View {
     }
 
     /**
-     * @describe 触摸点与中心点之间直线与水平方向的夹角角度
      * @param a
      * @param b
      * @return
+     * @describe 触摸点与中心点之间直线与水平方向的夹角角度
      */
     public static float getRadian(Point a, Point b) {
         float lenA = b.x - a.x;

@@ -32,30 +32,25 @@ import java.util.regex.PatternSyntaxException;
 public class MyTools {
 
 
-
-
-
-
-    public static int randomColor(){
+    public static int randomColor() {
         Random random = new Random();
-        int color = Color.argb(255,random.nextInt(256),random.nextInt(256),random.nextInt(256));
+        int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
         return color;
     }
 
-    public static HashMap string2HashMap(String str){
-        if(str == null || str == "")
+    public static HashMap string2HashMap(String str) {
+        if (str == null || str == "")
             return null;
         str = str.substring(1);
-        str = str.substring(0,str.length()-1);
+        str = str.substring(0, str.length() - 1);
         String[] strings = str.split(",");
         HashMap resultMap = new HashMap();
-        for(String entry : strings){
+        for (String entry : strings) {
             String[] temp = entry.split("=");
-            resultMap.put(temp[0].trim(),temp[1].trim());
+            resultMap.put(temp[0].trim(), temp[1].trim());
         }
         return resultMap;
     }
-
 
 
     public static boolean isChinaPhoneLegal(String str) throws PatternSyntaxException {
@@ -65,7 +60,7 @@ public class MyTools {
         return m.matches();
     }
 
-    public static Drawable loadAssets2Drawable(AssetManager assetManager,String filename){
+    public static Drawable loadAssets2Drawable(AssetManager assetManager, String filename) {
         InputStream is = null;
         Bitmap bitmap = null;
         try {
@@ -81,62 +76,62 @@ public class MyTools {
 
     private static Bitmap compressImage(Bitmap image) {
 
-        ByteArrayOutputStream baos =new ByteArrayOutputStream();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-        image.compress(Bitmap.CompressFormat.JPEG,100, baos);//质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
+        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
 
-        int options =100;
+        int options = 100;
 
-        while( baos.toByteArray().length /1024>100) {//循环判断如果压缩后图片是否大于100kb,大于继续压缩
+        while (baos.toByteArray().length / 1024 > 100) {//循环判断如果压缩后图片是否大于100kb,大于继续压缩
 
             baos.reset();//重置baos即清空baos
 
-            options -=10;//每次都减少10
+            options -= 10;//每次都减少10
 
             image.compress(Bitmap.CompressFormat.JPEG, options, baos);//这里压缩options%，把压缩后的数据存放到baos中
 
         }
 
-        ByteArrayInputStream isBm =new ByteArrayInputStream(baos.toByteArray());//把压缩后的数据baos存放到ByteArrayInputStream中
+        ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());//把压缩后的数据baos存放到ByteArrayInputStream中
 
-        Bitmap bitmap = BitmapFactory.decodeStream(isBm,null,null);//把ByteArrayInputStream数据生成图片
+        Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//把ByteArrayInputStream数据生成图片
 
         return bitmap;
 
     }
 
-    public static Bitmap comp(Bitmap image){
+    public static Bitmap comp(Bitmap image) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        image.compress(Bitmap.CompressFormat.JPEG,100,baos);
-        if (baos.toByteArray().length/1024 > 1024){
+        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        if (baos.toByteArray().length / 1024 > 1024) {
             baos.reset();
 
-            image.compress(Bitmap.CompressFormat.JPEG,50,baos);
+            image.compress(Bitmap.CompressFormat.JPEG, 50, baos);
         }
 
         ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
         BitmapFactory.Options newOpts = new BitmapFactory.Options();
         newOpts.inJustDecodeBounds = true;
-        Bitmap bitmap = BitmapFactory.decodeStream(isBm,null,newOpts);
+        Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);
         newOpts.inJustDecodeBounds = false;
         int w = newOpts.outWidth;
         int h = newOpts.outHeight;
         float hh = 800f;
         float ww = 480f;
         int be = 1;
-        if(w > h && w > ww){
-            be = (int)(newOpts.outWidth / ww);
-        }else if(w < h && h > hh){
-            be = (int)(newOpts.outHeight / hh);
+        if (w > h && w > ww) {
+            be = (int) (newOpts.outWidth / ww);
+        } else if (w < h && h > hh) {
+            be = (int) (newOpts.outHeight / hh);
         }
 
-        if(be <= 0){
+        if (be <= 0) {
             be = 1;
         }
         newOpts.inSampleSize = be;
         newOpts.inPreferredConfig = Bitmap.Config.RGB_565;
         isBm = new ByteArrayInputStream(baos.toByteArray());
-        bitmap = BitmapFactory.decodeStream(isBm,null,newOpts);
+        bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);
         return compressImage(bitmap);
     }
 
@@ -169,7 +164,7 @@ public class MyTools {
                     contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
                 }
                 String selection = MediaStore.Images.Media._ID + "=?";
-                String[] selectionArgs = new String[] { split[1] };
+                String[] selectionArgs = new String[]{split[1]};
                 return getDataColumn(context, contentUri, selection, selectionArgs);
             }
         } // MediaStore (and general)
@@ -189,7 +184,7 @@ public class MyTools {
     public static String getDataColumn(Context context, Uri uri, String selection, String[] selectionArgs) {
         Cursor cursor = null;
         String column = MediaStore.Images.Media.DATA;
-        String[] projection = { column };
+        String[] projection = {column};
         try {
             cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs, null);
             if (cursor != null && cursor.moveToFirst()) {

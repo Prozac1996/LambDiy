@@ -22,16 +22,16 @@ public class TimeButton extends Button implements View.OnClickListener {
 
     private String oldText = "发送验证码";
     private String afterText = "s后重发";
-    Handler handler = new Handler(){
+    Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            setText(time/1000+afterText);
-            time-=1000;
-            if(time >= 0){
-                setText(time/1000+afterText);
+            setText(time / 1000 + afterText);
+            time -= 1000;
+            if (time >= 0) {
+                setText(time / 1000 + afterText);
                 setEnabled(false);
-            }else{
+            } else {
                 setText(oldText);
                 setEnabled(true);
                 clearTimer();
@@ -50,13 +50,13 @@ public class TimeButton extends Button implements View.OnClickListener {
 
     @Override
     public void setOnClickListener(OnClickListener l) {
-        if(l instanceof TimeButton)
+        if (l instanceof TimeButton)
             super.setOnClickListener(l);
         else
             mOnClickLlistener = l;
     }
 
-    private void initTimer(){
+    private void initTimer() {
         time = 60 * 1000;
         t = new Timer();
         tt = new TimerTask() {
@@ -65,22 +65,22 @@ public class TimeButton extends Button implements View.OnClickListener {
                 handler.sendEmptyMessage(0x01);
             }
         };
-        t.schedule(tt,0,1000);
+        t.schedule(tt, 0, 1000);
     }
 
-    private void clearTimer(){
-        if(tt != null){
+    private void clearTimer() {
+        if (tt != null) {
             tt.cancel();
             tt = null;
         }
-        if(t != null)
+        if (t != null)
             t = null;
         time = 60 * 1000;
     }
 
     @Override
     public void onClick(View v) {
-        if(mOnClickLlistener != null)
+        if (mOnClickLlistener != null)
             mOnClickLlistener.onClick(v);
         initTimer();
     }

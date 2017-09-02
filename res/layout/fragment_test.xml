@@ -8,9 +8,9 @@
 
     <Button android:id="@+id/test_btn_selectImage"
             android:layout_width="match_parent" android:layout_height="wrap_content" android:text="选择图片"/>
-    
+
     <ImageView android:id="@+id/test_iv_image"
-            android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/logo"/>
+               android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/logo"/>
 
     <Button android:id="@+id/test_btn_uploadImage"
             android:layout_width="match_parent" android:layout_height="wrap_content" android:text="上传图片"/>

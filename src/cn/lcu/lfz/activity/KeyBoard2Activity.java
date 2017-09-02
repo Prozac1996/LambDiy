@@ -27,10 +27,10 @@ import view.KeyBoardView;
  */
 public class KeyBoard2Activity extends Activity implements View.OnClickListener, KeyBoardView.OnKeyBoardSelectedListener, ColorPickerDialogFragment.GetColorEventListener, AreaSelectDialogFragment.OnAreaSelectedListener, SaveKeyBoardDialogFragment.SaveKeyBoardCallback, LoadKeyBoardDialogFragment.LoadKeyBoardEventListener {
 
-    private LinearLayout btn_model,btn_area,iv_palette,btn_save,iv_share,btn_load,btn_spray,layout_control,btn_hide;
+    private LinearLayout btn_model, btn_area, iv_palette, btn_save, iv_share, btn_load, btn_spray, layout_control, btn_hide;
     private ImageView btn_back;
     private ImageView btn_menu;
-    private TextView tv_title,tv_color,tv_area;
+    private TextView tv_title, tv_color, tv_area;
 
 
     private KeyBoardView keyBoardView;
@@ -42,13 +42,13 @@ public class KeyBoard2Activity extends Activity implements View.OnClickListener,
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         LayoutInflater inflater = getLayoutInflater();
-        FrameLayout keyboard_layout = (FrameLayout) inflater.inflate(R.layout.activity_keyboard2,null);
+        FrameLayout keyboard_layout = (FrameLayout) inflater.inflate(R.layout.activity_keyboard2, null);
         LinearLayout keyboard_container = (LinearLayout) keyboard_layout.findViewById(R.id.keyboard_container);
         keyBoardView = new KeyBoardView(this);
         keyboard_container.addView(keyBoardView);
         setContentView(keyboard_layout);
         init();
-     }
+    }
 
     private void init() {
         btn_model = (LinearLayout) findViewById(R.id.keyboard_model);
@@ -80,49 +80,49 @@ public class KeyBoard2Activity extends Activity implements View.OnClickListener,
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.keyboard_model:
                 //更改模型
-                BottomToast.showToast(this,"加载中，清稍等");
-                keyBoardView.changeKeyboard(1,this);
+                BottomToast.showToast(this, "加载中，清稍等");
+                keyBoardView.changeKeyboard(1, this);
                 hideControlLayout();
                 break;
             case R.id.keyboard_area:
                 //更改区域
-                if(!keyBoardView.isLoad()){
-                    BottomToast.showToast(this,"还没选择键盘呢！");
+                if (!keyBoardView.isLoad()) {
+                    BottomToast.showToast(this, "还没选择键盘呢！");
                     return;
                 }
                 AreaSelectDialogFragment areaSelectDialogFragment = new AreaSelectDialogFragment(this);
-                areaSelectDialogFragment.show(getFragmentManager(),"");
+                areaSelectDialogFragment.show(getFragmentManager(), "");
                 hideControlLayout();
                 break;
             case R.id.keyboard_spray:
                 //涂色
-                if(!keyBoardView.isLoad()){
-                    BottomToast.showToast(this,"还没选择键盘呢！");
+                if (!keyBoardView.isLoad()) {
+                    BottomToast.showToast(this, "还没选择键盘呢！");
                     return;
                 }
-                keyBoardView.changeColor(pos,color);
+                keyBoardView.changeColor(pos, color);
                 hideControlLayout();
                 break;
             case R.id.keyboard_save:
                 //保存
-                if(!keyBoardView.isLoad()){
-                    BottomToast.showToast(this,"还没选择键盘呢！");
+                if (!keyBoardView.isLoad()) {
+                    BottomToast.showToast(this, "还没选择键盘呢！");
                     return;
                 }
                 SaveKeyBoardDialogFragment saveKeyBoardDialogFragment = new SaveKeyBoardDialogFragment(this);
-                saveKeyBoardDialogFragment.show(getFragmentManager(),"saveKeyBoard");
+                saveKeyBoardDialogFragment.show(getFragmentManager(), "saveKeyBoard");
                 hideControlLayout();
                 break;
             case R.id.keyboard_load:
-                if(!keyBoardView.isLoad()){
-                    BottomToast.showToast(this,"还没选择键盘呢！");
+                if (!keyBoardView.isLoad()) {
+                    BottomToast.showToast(this, "还没选择键盘呢！");
                     return;
                 }
-                LoadKeyBoardDialogFragment loadKeyBoardDialogFragment = new LoadKeyBoardDialogFragment(this,false);
-                loadKeyBoardDialogFragment.show(getFragmentManager(),"keyboardList");
+                LoadKeyBoardDialogFragment loadKeyBoardDialogFragment = new LoadKeyBoardDialogFragment(this, false);
+                loadKeyBoardDialogFragment.show(getFragmentManager(), "keyboardList");
                 hideControlLayout();
                 break;
             case R.id.keyboard_back:
@@ -131,13 +131,13 @@ public class KeyBoard2Activity extends Activity implements View.OnClickListener,
                 break;
             case R.id.keyboard_share:
                 //分享
-                BottomToast.showToast(this,"这个功能还木有开发");
+                BottomToast.showToast(this, "这个功能还木有开发");
                 hideControlLayout();
                 break;
             case R.id.keyboard_palette:
                 //调色盘
                 ColorPickerDialogFragment colorPickerDialogFragment = new ColorPickerDialogFragment(this);
-                colorPickerDialogFragment.show(getFragmentManager(),"colorPicker");
+                colorPickerDialogFragment.show(getFragmentManager(), "colorPicker");
                 hideControlLayout();
                 break;
             case R.id.keyboard_menu:
@@ -150,12 +150,12 @@ public class KeyBoard2Activity extends Activity implements View.OnClickListener,
 
     private void showControlLayout() {
         layout_control.setVisibility(View.VISIBLE);
-        Animation animation = AnimationUtils.loadAnimation(this,R.anim.control_in);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.control_in);
         layout_control.startAnimation(animation);
     }
 
-    private void hideControlLayout(){
-        if(layout_control.getVisibility() == View.VISIBLE) {
+    private void hideControlLayout() {
+        if (layout_control.getVisibility() == View.VISIBLE) {
             Animation animation = AnimationUtils.loadAnimation(this, R.anim.control_out);
             layout_control.startAnimation(animation);
             layout_control.setVisibility(View.GONE);
@@ -186,12 +186,12 @@ public class KeyBoard2Activity extends Activity implements View.OnClickListener,
 
     @Override
     public void saveFinish(String str) {
-        keyBoardView.keyboardModel.saveKeyBoard(str,new SaveCallback() {
+        keyBoardView.keyboardModel.saveKeyBoard(str, new SaveCallback() {
             @Override
             public void done(AVException e) {
-                if(e == null){
-                    BottomToast.showToast(KeyBoard2Activity.this,"已经保存好了！");
-                }else{
+                if (e == null) {
+                    BottomToast.showToast(KeyBoard2Activity.this, "已经保存好了！");
+                } else {
                     e.printStackTrace();
                 }
             }

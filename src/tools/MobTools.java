@@ -19,8 +19,8 @@ public class MobTools {
         SMSSDK.getVerificationCode("86", phone);
     }
 
-    public static void submitCode(String phone,String code){
-        SMSSDK.submitVerificationCode("86",phone,code);
+    public static void submitCode(String phone, String code) {
+        SMSSDK.submitVerificationCode("86", phone, code);
     }
 
 }

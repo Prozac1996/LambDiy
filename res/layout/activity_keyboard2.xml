@@ -12,105 +12,105 @@
                   android:background="@drawable/keyboard_bg" android:layout_gravity="center_horizontal|bottom">
 
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal" android:padding="5dp"
-            android:gravity="center">
-        <ImageView android:id="@+id/keyboard_menu"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:src="@drawable/menu"/>
-        <!--<ImageView android:id="@+id/keyboard_model"-->
-                   <!--android:layout_width="wrap_content"-->
-                   <!--android:layout_height="wrap_content"-->
-                   <!--android:src="@drawable/change"/>-->
-        <!--<ImageView android:id="@+id/keyboard_area"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:src="@drawable/area"/>-->
-        <!--<ImageView android:id="@+id/keyboard_palette"-->
-                   <!--android:layout_width="wrap_content"-->
-                   <!--android:layout_height="wrap_content"-->
-                   <!--android:src="@drawable/palette"/>-->
-
-        <!--<ImageView android:id="@+id/keyboard_save"-->
-                   <!--android:layout_width="wrap_content"-->
-                   <!--android:layout_height="wrap_content"-->
-                   <!--android:src="@drawable/save"/>-->
         <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:textColor="#ffffff"
-                      android:text="当前颜色"/>
-            <TextView
-                    android:id="@+id/keyboard_info_color"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp">
-
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:textColor="#ffffff"
-                      android:text="当前区域"
-                      android:layout_gravity="center"/>
-
-            <TextView android:id="@+id/keyboard_info_area"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:textColor="#ffffff"
-                      android:text="默认位置"/>
-
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:orientation="horizontal" android:gravity="center" android:layout_marginLeft="20dp"
-                        android:id="@+id/keyboard_spray">
-            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal" android:padding="5dp"
+                android:gravity="center">
+            <ImageView android:id="@+id/keyboard_menu"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-                       android:src="@drawable/brush"/>
-            <TextView
+                       android:src="@drawable/menu"/>
+            <!--<ImageView android:id="@+id/keyboard_model"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/change"/>-->
+            <!--<ImageView android:id="@+id/keyboard_area"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/area"/>-->
+            <!--<ImageView android:id="@+id/keyboard_palette"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/palette"/>-->
+
+            <!--<ImageView android:id="@+id/keyboard_save"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/save"/>-->
+            <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="上色"
-                    android:textColor="#ffffff"/>
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="#ffffff"
+                          android:text="当前颜色"/>
+                <TextView
+                        android:id="@+id/keyboard_info_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="#ffffff"
+                          android:text="当前区域"
+                          android:layout_gravity="center"/>
+
+                <TextView android:id="@+id/keyboard_info_area"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="#ffffff"
+                          android:text="默认位置"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:orientation="horizontal" android:gravity="center" android:layout_marginLeft="20dp"
+                          android:id="@+id/keyboard_spray">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/brush"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="上色"
+                        android:textColor="#ffffff"/>
+            </LinearLayout>
+
+
+            <TextView android:id="@+id/keyboard_title"
+                      android:layout_width="0dp"
+                      android:layout_weight="1"
+                      android:layout_height="match_parent"
+                      android:textColor="#ffffff"
+                      android:gravity="center"
+                      android:text="键盘名称"/>
+
+            <ImageView android:id="@+id/keyboard_back"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/back"/>
+
         </LinearLayout>
 
-
-        <TextView android:id="@+id/keyboard_title"
-                  android:layout_width="0dp"
-                  android:layout_weight="1"
-                  android:layout_height="match_parent"
-                  android:textColor="#ffffff"
-                  android:gravity="center"
-                  android:text="键盘名称"/>
-
-        <ImageView android:id="@+id/keyboard_back"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:src="@drawable/back"/>
-
-    </LinearLayout>
-
-    <LinearLayout android:id="@+id/keyboard_container"
-                  android:layout_width="wrap_content"
-                  android:layout_height="0dp"
-                  android:layout_weight="1"
-                  android:orientation="horizontal"
-                  android:gravity="center">
+        <LinearLayout android:id="@+id/keyboard_container"
+                      android:layout_width="wrap_content"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:orientation="horizontal"
+                      android:gravity="center">
 
         </LinearLayout>
 

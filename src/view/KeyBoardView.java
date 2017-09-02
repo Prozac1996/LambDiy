@@ -10,9 +10,9 @@ import substance.FishKeyBoard;
  * Created by Administrator on 2017/1/31.
  * 此自定义View作用是生成键盘的画布，作为载体。
  */
-public  class KeyBoardView extends View{
+public class KeyBoardView extends View {
 
-//    private Paint mPaint;
+    //    private Paint mPaint;
     private LayerDrawable mDrawables;           //获取分层合成的总Drawable
     public KeyBoardModel keyboardModel = null;  //具体的设计对象
     public OnKeyBoardSelectedListener listener;
@@ -34,17 +34,17 @@ public  class KeyBoardView extends View{
     }
 
     //更换键盘Model时调用
-    public void changeKeyboard(int kb_id,OnKeyBoardSelectedListener listener){
+    public void changeKeyboard(int kb_id, OnKeyBoardSelectedListener listener) {
         load = true;
         this.listener = listener;
-        switch (kb_id){
+        switch (kb_id) {
             case 1:
                 keyboardModel = new FishKeyBoard(getContext());
                 break;
             default:
                 break;
         }
-        if(keyboardModel != null){
+        if (keyboardModel != null) {
             mDrawables = (LayerDrawable) keyboardModel.getDrawable();
             setBackground(mDrawables);
             keyboardModel.recoverKeyBoard();
@@ -53,8 +53,8 @@ public  class KeyBoardView extends View{
     }
 
     //更换层次颜色时调用
-    public void changeColor(int pos,int color){
-        keyboardModel.changeColor(pos,color);
+    public void changeColor(int pos, int color) {
+        keyboardModel.changeColor(pos, color);
         //        Drawable drawable;
 //        if(drawable != null){
 //            drawable.setColorFilter(color, PorterDuff.Mode.SRC_IN);
@@ -73,7 +73,7 @@ public  class KeyBoardView extends View{
 //    }
 
 
-//    废弃代码：寻找需要涂色的图层，已集成到KeyBoardModel类中
+    //    废弃代码：寻找需要涂色的图层，已集成到KeyBoardModel类中
 //    private Drawable findDrawable(float x,float y){
 //        final int numberOfLayers = mDrawables.getNumberOfLayers();
 //        Drawable drawable = null;
@@ -96,6 +96,7 @@ public  class KeyBoardView extends View{
 //
     public interface OnKeyBoardSelectedListener {
         public void onSelectedKeyBoard(String name);
+
         public void onSelectedArea(String name);
     }
 }

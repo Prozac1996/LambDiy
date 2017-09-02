@@ -7,9 +7,9 @@
     <HorizontalScrollView android:id="@+id/categoryBar_scrollView"
                           android:layout_width="match_parent"
                           android:layout_height="50dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginTop="3dp"
-                            android:scrollbars="none" >
+                          android:layout_marginLeft="8dp"
+                          android:layout_marginTop="3dp"
+                          android:scrollbars="none">
 
         <LinearLayout android:id="@+id/category_layout"
                       android:layout_width="match_parent"
@@ -21,8 +21,8 @@
     </HorizontalScrollView>
 
     <view.RefreshableView android:id="@+id/refreshable_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent">
 
         <ListView android:id="@+id/news_list"
                   android:layout_width="match_parent" android:layout_height="match_parent"

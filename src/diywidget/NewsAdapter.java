@@ -12,6 +12,7 @@ import cn.lcu.lfz.Discovery.R;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.GetDataCallback;
+import tools.ACache;
 import tools.ParseTools;
 
 import java.util.ArrayList;
@@ -22,13 +23,16 @@ import java.util.Map;
  */
 public class NewsAdapter extends BaseAdapter {
 
+    private ACache mCache;
+
     private ArrayList newsList;
     private Context context;
 
 
-    public NewsAdapter(Context context, ArrayList arrayList){
+    public NewsAdapter(Context context, ArrayList arrayList) {
         newsList = arrayList;
         this.context = context;
+        mCache = ACache.get(context);
     }
 
     @Override
@@ -49,14 +53,14 @@ public class NewsAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View v = inflater.inflate(R.layout.item_news,parent,false);
+        View v = inflater.inflate(R.layout.item_news, parent, false);
         TextView news_title = (TextView) v.findViewById(R.id.item_news_title);
         TextView news_content = (TextView) v.findViewById(R.id.item_news_content);
         TextView news_time = (TextView) v.findViewById(R.id.item_news_time);
         ImageView news_image = (ImageView) v.findViewById(R.id.item_news_image);
 
 
-        Map<String,Object> news = (Map<String, Object>) newsList.get(position);
+        Map<String, Object> news = (Map<String, Object>) newsList.get(position);
         String title = (String) news.get("title");
         String content = (String) news.get("content");
         String time = (String) news.get("time");
@@ -65,14 +69,19 @@ public class NewsAdapter extends BaseAdapter {
         news_title.setText(title);
         news_content.setText(content);
         news_time.setText(time);
-        if(image != null) {
-            image.getDataInBackground(new GetDataCallback() {
-                @Override
-                public void done(byte[] bytes, AVException e) {
-                    Drawable drawable = ParseTools.bytes2Drawable(bytes);
-                    news_image.setImageDrawable(drawable);
-                }
-            });
+        if (image != null) {
+            Drawable drawable = mCache.getAsDrawable(image.getObjectId());
+            if(drawable == null)
+                image.getDataInBackground(new GetDataCallback() {
+                    @Override
+                    public void done(byte[] bytes, AVException e) {
+                        Drawable drawable = ParseTools.bytes2Drawable(bytes);
+                        mCache.put(image.getObjectId(),drawable);
+                        news_image.setImageDrawable(drawable);
+                    }
+                });
+            else
+                news_image.setImageDrawable(drawable);
         }
         return v;
     }

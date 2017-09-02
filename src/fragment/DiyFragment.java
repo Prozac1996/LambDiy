@@ -19,7 +19,7 @@ public class DiyFragment extends Fragment implements View.OnClickListener {
 
 //    private static final int DIY_KEYBOARD = 0;
 
-      private LinearLayout btn_start;
+    private LinearLayout btn_start;
 //    private GridView gridView; 0
 //    private List<Map<String,Object>> data_list;
 //    private SimpleAdapter simpleAdapter;
@@ -30,7 +30,7 @@ public class DiyFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_diy,container,false);
+        View v = inflater.inflate(R.layout.fragment_diy, container, false);
 //        gridView = (GridView) v.findViewById(R.id.fragment_diy_gridView);
 //        initData();
 //        String[] from = {"image","text"};
